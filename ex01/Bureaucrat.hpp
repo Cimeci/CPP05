@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 10:46:36 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/08 10:24:02 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/08 10:37:57 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,6 @@ class Bureaucrat{
 			};
 		
 		class GradeTooLowException : public std::exception {
-			public:
-				const char* what() const throw();
-			};
-		class AlreadySigned : public std::exception {
 			public:
 				const char* what() const throw();
 			};

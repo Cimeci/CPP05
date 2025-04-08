@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 10:58:42 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/08 10:25:46 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/08 10:37:54 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ Bureaucrat::~Bureaucrat(){}
 const char* Bureaucrat::GradeTooHighException::what() const throw() {return "GradeTooHighException";}
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {return "GradeTooLowException";}
-
-const char* Bureaucrat::AlreadySigned::what() const throw() {return "AlreadySigned";}
 
 std::string Bureaucrat::getName(void) const{return (name);}
 int Bureaucrat::getGrade(void) const{return (grade);}
