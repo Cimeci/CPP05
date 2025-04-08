@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:36:24 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/08 10:56:50 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/08 16:08:33 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ class AForm{
 		int getGradeToExecute(void) const;
 
 		virtual void beSigned(const Bureaucrat &b);
-		virtual void execute(Bureaucrat const & executor) = 0; // abstract class
+		virtual void execute(Bureaucrat const & executor) const = 0; // abstract class
 };
 std::ostream& operator<<(std::ostream& os, const AForm& b);

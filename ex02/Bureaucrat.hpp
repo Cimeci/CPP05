@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 10:46:36 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/08 10:36:31 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/08 15:44:50 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 #include "colors.hpp"
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include <iostream>
 
 class Bureaucrat{
@@ -44,5 +47,7 @@ class Bureaucrat{
 		void	decrementGrade(void);
 
 		void	signForm(AForm &aform) const;
+
+		void executeForm(AForm const & form);
 };
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
