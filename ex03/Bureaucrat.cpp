@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 10:58:42 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/08 19:36:48 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/08 19:36:45 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ void	Bureaucrat::signForm(AForm &form) const{
     	std::cout << BOLD << name << RESET << " signed " << RED << form.getName() << RESET << std::endl;
 	}
 	catch (AForm::GradeTooLowException &e){
-		std::cout << BOLD << name << RESET << " couldn't sign "  << RED << form.getName() << RESET << " because " << BLUE_BOLD << grade << " > " << form.getGradeToSign() << "." << std::endl << RESET;
+		if (grade > form.getGradeToSign())
+			std::cout << BOLD << name << RESET << " couldn't sign " << form.getName() << " because " << BLUE_BOLD << grade << " > " << form.getGradeToSign() << "." << std::endl << RESET;
+		else if (grade > form.getGradeToExecute())
+			std::cout << BOLD << name << RESET << " couldn't sign " << form.getName() << " because " << BLUE_BOLD << grade << " > " << form.getGradeToExecute() << "." << std::endl << RESET;
 	}
 	catch (AForm::AlreadySigned &e){
 		std::cout << BOLD << name << RESET << " has already signed "  << RED << form.getName() << RESET << "." << std::endl;
