@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 10:58:42 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/07 16:39:19 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/08 10:25:46 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ Bureaucrat::~Bureaucrat(){}
 const char* Bureaucrat::GradeTooHighException::what() const throw() {return "GradeTooHighException";}
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {return "GradeTooLowException";}
+
+const char* Bureaucrat::AlreadySigned::what() const throw() {return "AlreadySigned";}
 
 std::string Bureaucrat::getName(void) const{return (name);}
 int Bureaucrat::getGrade(void) const{return (grade);}
@@ -48,18 +50,12 @@ void	Bureaucrat::signForm(Form &form) const{
 	
 	try{
 		form.beSigned(*this);
-    	std::cout << name << " signed " << form.getName() << std::endl;
+    	std::cout << BOLD << name << RESET << " signed " << form.getName() << std::endl;
 	}
 	catch (Form::GradeTooLowException &e){
-		std::cout << name << " couldn't sign " << form.getName() << " because " << BLUE_BOLD << grade << " > " << form.getGradeToSign() << "." << std::endl << RESET;
+		std::cout << BOLD << name << RESET << " couldn't sign " << form.getName() << " because " << BLUE_BOLD << grade << " > " << form.getGradeToSign() << "." << std::endl << RESET;
 	}
-	
-	bool tmp = form.getIndicator();
-	form.beSigned(*this);
-	if (tmp == false && form.getIndicator() == true)
-    	std::cout << name << " signed " << form.getName() << std::endl;
-	else if (tmp == true && form.getIndicator() == true)
-		std::cout << name << " has already signed " << form.getName() << std::endl;
-	else
-   		std::cout << name << " couldn't sign " << form.getName() << " because " << BLUE_BOLD << grade << " > " << form.getGradeToSign() << "." << std::endl << RESET;	
+	catch (Form::AlreadySigned &e){
+		std::cout << BOLD << name << RESET << " has already signed " << form.getName() << "." << std::endl;
+	}	
 }

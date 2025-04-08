@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:44:52 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/07 16:38:12 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/08 10:02:55 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void Form::beSigned(const Bureaucrat &b){
 	if (b.getGrade() <= gradeToSign)
 	{
 		if (indicator == true)
-			throw 
+			throw AlreadySigned();
 		indicator = true;
 	}
 	else
