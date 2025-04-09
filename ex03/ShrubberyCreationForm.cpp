@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 10:52:30 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/08 16:17:30 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/09 15:19:31 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 			std::cerr << "Error : open file !" << std::endl;
 			return ;
 		}
-		file << "       ###" << std::endl;
-		file << "      #o###" << std::endl;
-		file << "    #####o###" << std::endl;
-		file << "   #o#\\#|#/###" << std::endl;
-		file << "    ###\\|/#o#" << std::endl;
-		file << "     # }|{  #" << std::endl;
-		file << "       }|{   " << std::endl;
+		file << "       ###             ###" << std::endl;
+		file << "      #o###           #o###" << std::endl;
+		file << "    #####o###       #####o###" << std::endl;
+		file << "   #o#\\#|#/###     #o#\\#|#/###" << std::endl;
+		file << "    ###\\|/#o#       ###\\|/#o#" << std::endl;
+		file << "     # }|{  #        # }|{  #" << std::endl;
+		file << "       }|{             }|{   " << std::endl;
 		file.close();
 	}
 	else
