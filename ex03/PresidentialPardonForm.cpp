@@ -6,16 +6,24 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 11:30:15 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/08 16:44:23 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:07:45 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "PresidentialPardonForm.hpp"
 # include "Bureaucrat.hpp"
 
+// CANONICAL FORM //
 PresidentialPardonForm::PresidentialPardonForm():AForm("PresidentialPardonForm", 25, 5), target("default"){}
-PresidentialPardonForm::PresidentialPardonForm(const std::string target):AForm("PresidentialPardonForm", 25, 5), target(target){}
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &cp): AForm(cp), target(cp.target){}
+PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &op){
+	if (this != &op){AForm::operator=(op);}
+	return *this;
+}
 PresidentialPardonForm::~PresidentialPardonForm(){}
+// CANONICAL FORM //
+
+PresidentialPardonForm::PresidentialPardonForm(const std::string target):AForm("PresidentialPardonForm", 25, 5), target(target){}
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const{
 	if(indicator == true && executor.getGrade() <= gradeToExecute)

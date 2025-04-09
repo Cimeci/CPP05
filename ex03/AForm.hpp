@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:36:24 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/08 16:08:33 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/09 16:18:37 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,14 @@ class AForm{
 		const int gradeToExecute;
 	
 	public:
+		// CANONICAL FORM //
 		AForm();
-		AForm(const std::string &name, const int gradeToSign, const int gradeToExecute);
+		AForm(AForm const &cp);
+		AForm &operator=(AForm const &op);
 		virtual ~AForm(); // abstract class
+		// CANONICAL FORM //
+
+		AForm(const std::string &name, const int gradeToSign, const int gradeToExecute);
 
 		class GradeTooHighException : public std::exception {
 			public:

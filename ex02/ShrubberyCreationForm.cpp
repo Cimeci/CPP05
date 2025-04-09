@@ -6,16 +6,24 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 10:52:30 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/08 16:17:30 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:08:23 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ShrubberyCreationForm.hpp"
 # include "Bureaucrat.hpp"
 
+// CANONICAL FORM //
 ShrubberyCreationForm::ShrubberyCreationForm():AForm("ShrubberyCreationForm", 145, 137), target("default"){}
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string target):AForm("ShrubberyCreationForm", 145, 137), target(target){}
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &cp): AForm(cp), target(cp.target){}
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &op){
+	if (this != &op){AForm::operator=(op);}
+	return *this;
+}
 ShrubberyCreationForm::~ShrubberyCreationForm(){}
+// CANONICAL FORM //
+
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string target):AForm("ShrubberyCreationForm", 145, 137), target(target){}
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 	if(indicator == true && executor.getGrade() <= gradeToExecute)
@@ -27,13 +35,13 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 			std::cerr << "Error : open file !" << std::endl;
 			return ;
 		}
-		file << "       ###" << std::endl;
-		file << "      #o###" << std::endl;
-		file << "    #####o###" << std::endl;
-		file << "   #o#\\#|#/###" << std::endl;
-		file << "    ###\\|/#o#" << std::endl;
-		file << "     # }|{  #" << std::endl;
-		file << "       }|{   " << std::endl;
+		file << "       ###             ###" << std::endl;
+		file << "      #o###           #o###" << std::endl;
+		file << "    #####o###       #####o###" << std::endl;
+		file << "   #o#\\#|#/###     #o#\\#|#/###" << std::endl;
+		file << "    ###\\|/#o#       ###\\|/#o#" << std::endl;
+		file << "     # }|{  #        # }|{  #" << std::endl;
+		file << "       }|{             }|{   " << std::endl;
 		file.close();
 	}
 	else

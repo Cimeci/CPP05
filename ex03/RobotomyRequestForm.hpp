@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 10:43:00 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/08 16:04:19 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:08:00 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,14 @@ class RobotomyRequestForm: public AForm{
 		const std::string target;
 
 	public:
+		// CANONICAL FORM //
 		RobotomyRequestForm();
-		RobotomyRequestForm(const std::string target);
+		RobotomyRequestForm(RobotomyRequestForm const &cp);
+		RobotomyRequestForm &operator=(RobotomyRequestForm const &op);
 		~RobotomyRequestForm();
+		// CANONICAL FORM //
+
+		RobotomyRequestForm(const std::string target);
 
 		void execute(Bureaucrat const & executor) const;
 		

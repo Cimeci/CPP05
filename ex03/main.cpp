@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 10:28:01 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/08 19:41:09 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:17:44 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main(void){
 		bureaucrat.signForm(*RForm);
 		bureaucrat.signForm(*PForm);
 
-		std::cout << "\nBureaucrat Execute :\n" << std::endl;
+		std::cout << "\nBureaucrat Execute :" << std::endl;
 
 		std::cout << BOLD << UNDERLINE <<"\nShrubberyCreationForm : \n" << RESET << std::endl;
 		

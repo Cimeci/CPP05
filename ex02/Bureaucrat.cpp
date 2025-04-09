@@ -6,14 +6,21 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 10:58:42 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/08 19:36:48 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:21:24 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(): name("default"), grade(150){}
-
+Bureaucrat::Bureaucrat(Bureaucrat const &cp){*this = cp;}
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &op){
+	if (this != &op){
+		grade = op.grade;
+	}
+	return *this;
+}
+Bureaucrat::~Bureaucrat(){}
 Bureaucrat::Bureaucrat(const std::string& name, int grade): name(name){
 	if (grade > 150)
 		throw GradeTooLowException();
@@ -21,7 +28,6 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade): name(name){
 		throw GradeTooHighException();
 	this->grade = grade;
 }
-Bureaucrat::~Bureaucrat(){}
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {return "GradeTooHighException";}
 

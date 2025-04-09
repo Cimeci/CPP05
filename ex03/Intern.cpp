@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:54:34 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/08 18:58:57 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:16:09 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # include <string>
 
 Intern::Intern(){}
+Intern::Intern(Intern const &cp){*this = cp;}
+Intern &Intern::operator=(Intern const &op){\
+	if(this != &op)
+		return *this;
+	return (*this);
+	}
 Intern::~Intern(){}
 
 AForm *Intern::makeForm(const std::string &FormName, const std::string &FormTarget){

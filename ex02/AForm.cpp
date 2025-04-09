@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:44:52 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/08 15:57:19 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/09 16:59:39 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,13 @@
 #include "Bureaucrat.hpp"
 
 AForm::AForm(): name("default"), indicator(0), gradeToSign(150), gradeToExecute(150){}
-
+AForm::AForm(AForm const &cp):name(cp.name),indicator(cp.indicator),gradeToSign(cp.gradeToSign),gradeToExecute(cp.gradeToExecute){}
+AForm &AForm::operator=(AForm const &op){
+    if (this != &op) {
+        this->indicator = op.indicator;
+    }
+    return *this;
+}
 AForm::AForm(const std::string &name, const int gradeToSign, const int gradeToExecute): name(name), indicator(0), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute){
 		if (gradeToSign > 150 || gradeToExecute > 150)
 			throw GradeTooLowException();
