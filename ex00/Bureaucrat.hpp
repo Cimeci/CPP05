@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 10:46:36 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/07 14:41:34 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:28:31 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Bureaucrat{
 		int grade;
 		
 	public:
+		// NO CANONICAL FORM //
 		Bureaucrat(const std::string& name, int grade);
 		~Bureaucrat();
 
