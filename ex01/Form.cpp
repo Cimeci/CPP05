@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:44:52 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/08 10:36:17 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:26:57 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,20 @@
 #include "Bureaucrat.hpp"
 
 Form::Form(): name("default"), gradeToSign(150), gradeToExecute(150){}
-
+Form::Form(Form const &cp):name(cp.name),indicator(cp.indicator),gradeToSign(cp.gradeToSign),gradeToExecute(cp.gradeToExecute){}
+Form &Form::operator=(Form const &op){
+    if (this != &op) {
+        this->indicator = op.indicator;
+    }
+    return *this;
+}
+Form::~Form(){}
 Form::Form(const std::string &name, const int gradeToSign, const int gradeToExecute): name(name), indicator(0), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute){
 		if (gradeToSign > 150 || gradeToExecute > 150)
 			throw GradeTooLowException();
 		else if (gradeToSign < 1 || gradeToExecute > 150)
 			throw GradeTooHighException();
 }
-
-Form::~Form(){}
 
 const char* Form::GradeTooHighException::what() const throw() {return "GradeTooHighException";}
 

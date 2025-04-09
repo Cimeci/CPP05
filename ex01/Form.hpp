@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:36:24 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/08 10:36:20 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:26:39 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,14 @@ class Form{
 		const int gradeToExecute;
 	
 	public:
+		// CANONICAL FORM //
 		Form();
-		Form(const std::string &name, const int gradeToSign, const int gradeToExecute);
+		Form(Form const &cp);
+		Form &operator=(Form const &op);
 		~Form();
+		// CANONICAL FORM //
+
+		Form(const std::string &name, const int gradeToSign, const int gradeToExecute);
 
 		class GradeTooHighException : public std::exception {
 			public:
