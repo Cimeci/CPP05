@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 11:30:15 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/09 17:07:45 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/15 10:50:30 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,8 @@ PresidentialPardonForm::~PresidentialPardonForm(){}
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string target):AForm("PresidentialPardonForm", 25, 5), target(target){}
 
-void PresidentialPardonForm::execute(Bureaucrat const & executor) const{
-	if(indicator == true && executor.getGrade() <= gradeToExecute)
+void PresidentialPardonForm::executeAction(void) const{
 		std::cout << target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
-	else
-		throw GradeTooLowException();
 }
 
 std::string PresidentialPardonForm::getTarget() const {return target;}

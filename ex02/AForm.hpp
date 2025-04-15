@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:36:24 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/09 16:18:37 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/15 10:54:51 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Bureaucrat;
 
 class AForm{
 
-	protected:
+	private:
 		const std::string name;
 		bool indicator;
 		const int gradeToSign;
@@ -49,12 +49,18 @@ class AForm{
 				const char* what() const throw();
 			};
 
+		class FormNotSignedException : public std::exception {
+			public:
+				const char* what() const throw();
+			};
+
 		std::string getName(void) const;
 		bool getIndicator(void) const;
 		int getGradeToSign(void) const;
 		int getGradeToExecute(void) const;
 
-		virtual void beSigned(const Bureaucrat &b);
-		virtual void execute(Bureaucrat const & executor) const = 0; // abstract class
+		void beSigned(const Bureaucrat &b);
+		void execute(Bureaucrat const & executor) const;
+		virtual void executeAction(void) const = 0; // abstract class
 };
 std::ostream& operator<<(std::ostream& os, const AForm& b);

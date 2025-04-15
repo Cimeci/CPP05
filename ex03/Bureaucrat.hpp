@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 10:46:36 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/09 16:18:55 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:21:50 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Bureaucrat{
 		Bureaucrat &operator=(Bureaucrat const &op);
 		~Bureaucrat();
 		// CANONICAL FORM //
-	
+
 		Bureaucrat(const std::string& name, int grade);
 
 		class GradeTooHighException : public std::exception {

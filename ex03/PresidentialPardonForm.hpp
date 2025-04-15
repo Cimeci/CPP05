@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 10:43:00 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/09 17:06:47 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/15 10:49:34 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class PresidentialPardonForm: public AForm{
 
 		PresidentialPardonForm(const std::string target);
 
-		void execute(Bureaucrat const & executor) const;
+		void executeAction(void) const;
 
 		std::string getTarget(void) const;
 };

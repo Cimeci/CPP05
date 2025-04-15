@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 10:52:30 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/09 17:08:23 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/15 10:50:46 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm(){}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string target):AForm("ShrubberyCreationForm", 145, 137), target(target){}
 
-void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
-	if(indicator == true && executor.getGrade() <= gradeToExecute)
-	{
+void ShrubberyCreationForm::executeAction(void) const{
 		std::ofstream file;
 		std::string filename = target + "_shrubbery";
 		file.open(filename.c_str(), std::ios::out);
@@ -43,9 +41,6 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 		file << "     # }|{  #        # }|{  #" << std::endl;
 		file << "       }|{             }|{   " << std::endl;
 		file.close();
-	}
-	else
-		throw GradeTooLowException();
 }
 
 std::string ShrubberyCreationForm::getTarget() const {return target;}

@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 10:58:42 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/09 17:21:24 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/15 10:57:32 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,5 @@ void	Bureaucrat::executeForm(AForm const & form){
 			std::cout << BOLD << name << RESET << " couldn't execute " << form.getName() << " because " << BLUE_BOLD << grade << " > " << form.getGradeToExecute() << "." << std::endl << RESET;
 	}
 	catch (AForm::AlreadySigned &e){std::cout << BOLD << name << RESET << " has already signed " << form.getName() << "." << std::endl;}	
+	catch (AForm::FormNotSignedException &e){std::cout << BOLD << form.getName() << RESET << " isn't signed " << "." << std::endl;}	
 }

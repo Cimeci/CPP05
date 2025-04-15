@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:44:52 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/09 16:59:39 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/15 10:54:30 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ const char* AForm::GradeTooLowException::what() const throw() {return "GradeTooL
 
 const char* AForm::AlreadySigned::what() const throw() {return "AlreadySigned";}
 
+const char* AForm::FormNotSignedException::what() const throw() {return "FormNotSignedException";}
+
+
 std::string AForm::getName(void) const{return name;}
 bool AForm::getIndicator(void) const{return indicator;}
 int AForm::getGradeToSign(void) const{return gradeToSign;}
@@ -56,3 +59,12 @@ void AForm::beSigned(const Bureaucrat &b){
 	else
 		throw GradeTooLowException();
 }
+
+void AForm::execute(Bureaucrat const & executor) const{
+	if (!indicator)
+		throw AForm::FormNotSignedException();
+	if (executor.getGrade() > gradeToExecute)
+		throw AForm::GradeTooLowException();
+	executeAction();
+}
+

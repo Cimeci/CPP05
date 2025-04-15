@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 11:30:15 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/09 17:08:13 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/15 10:50:13 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,14 @@ RobotomyRequestForm::~RobotomyRequestForm(){}
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string target):AForm("RobotomyRequestForm", 72, 45), target(target){}
 
-void RobotomyRequestForm::execute(Bureaucrat const & executor) const{
-	if(indicator == true && executor.getGrade() <= gradeToExecute)
-	{
-		std::cout << "Drilling noises..." << std :: endl;
-		std::srand(std::time(0));
-		int r = std::rand() % 2;
-		if (r == 0)
-			std::cout << "Robotomy failed!" << std::endl;
-   		else
-			std::cout << "Robotomy succeeded!" << std::endl;
-	}
-	else
-		throw GradeTooLowException();
+void RobotomyRequestForm::executeAction() const{
+	std::cout << "Drilling noises..." << std :: endl;
+	std::srand(std::time(0));
+	int r = std::rand() % 2;
+	if (r == 0)
+		std::cout << "Robotomy failed!" << std::endl;
+   	else
+		std::cout << "Robotomy succeeded!" << std::endl;
 }
 
 std::string RobotomyRequestForm::getTarget() const {return target;}
